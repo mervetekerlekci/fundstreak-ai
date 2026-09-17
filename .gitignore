@@ -1,15 +1,7 @@
-# Ortam değişkenleri (gizli anahtarlar)
 .env
-
-# Sanal ortam
 venv/
-
-# Python cache dosyaları
 __pycache__/
 *.pyc
-
-# macOS sistem dosyaları
 .DS_Store
-
-# VS Code ayarları 
 .vscode/
+*.db
