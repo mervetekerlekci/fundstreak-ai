@@ -18,24 +18,26 @@ dönüştüren bir fintech markasıdır. Sistem iki arayüzden oluşur:
 
 ## Mimari
 
-Proje, **Separation of Concerns** ilkesine göre
+Proje, **Separation of Concerns** (sorumlulukların ayrılığı) ilkesine göre
 tasarlanmıştır — her dosyanın tek bir görevi vardır:
+
+```
 fundstreak_ai/
-├── run.py # Sunucuyu başlatan giriş noktası
-├── config.py # Ayarlar ve .env okuma
-├── requirements.txt # Bağımlılık listesi
-├── .env # Gizli anahtarlar (Git'e eklenmez)
+├── run.py              # Sunucuyu başlatan giriş noktası
+├── config.py           # Ayarlar ve .env okuma
+├── requirements.txt    # Bağımlılık listesi
+├── .env                # Gizli anahtarlar (Git'e eklenmez)
 ├── .gitignore
 └── app/
-├── init.py # Uygulama fabrikası (create_app)
-├── database.py # Veritabanı işlemleri (SADECE burada)
-├── routes.py # HTTP rotaları (sadece yönlendirme)
-├── templates/
-│ ├── index.html # Karşılama sayfası
-│ └── dashboard.html # Yönetim paneli
-└── services/
-└── ai_service.py
-
+    ├── __init__.py       # Uygulama fabrikası (create_app)
+    ├── database.py       # Veritabanı işlemleri (SADECE burada)
+    ├── routes.py         # HTTP rotaları (sadece yönlendirme)
+    ├── templates/
+    │   ├── index.html      # Karşılama sayfası
+    │   └── dashboard.html  # Yönetim paneli
+    └── services/
+        └── ai_service.py   # Yapay zekâ (Groq) çağrıları (SADECE burada)
+```
 ## Teknoloji Yığını
 
 - **Backend:** Python, Flask
