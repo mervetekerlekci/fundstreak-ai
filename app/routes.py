@@ -59,10 +59,18 @@ def lead_kaydet():
     telefon = data.get("telefon")
     mesaj = data.get("mesaj")
 
+    # Zorunlu alan kontrolü
     if not isim or not telefon:
         return jsonify({
             "basari": False,
             "hata": "İsim ve telefon alanları zorunludur."
+        }), 400
+
+    # Telefon numarası kontrolü
+    if not telefon.isdigit() or len(telefon) != 11:
+        return jsonify({
+            "basari": False,
+            "hata": "Telefon numarası 11 haneli ve yalnızca rakamlardan oluşmalıdır."
         }), 400
 
     try:
@@ -78,7 +86,6 @@ def lead_kaydet():
             "basari": False,
             "hata": "Kayıt oluşturulurken bir hata oluştu."
         }), 500
-
 
 @api_bp.route("/leads", methods=["GET"])
 def leadleri_getir():
